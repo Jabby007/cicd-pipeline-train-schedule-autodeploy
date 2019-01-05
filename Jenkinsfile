@@ -27,8 +27,8 @@ pipeline {
             }
             steps {
                 script {
-                    docker.withRegistry('https://registry.hub.docker.com') {
-                        sh 'docker login  -u sudheer225 -p sreerama'
+                    docker.withRegistry('https://registry.hub.docker.com', 'docker_hub_login') {
+                        //sh 'docker login  -u sudheer225 -p sreerama'
                         app.push("${env.BUILD_NUMBER}")
                         app.push("latest")
                     }
